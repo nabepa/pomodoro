@@ -10,6 +10,11 @@ function App() {
     setIsPlay(!isPlay);
   };
 
+  const handdleStop = () => {
+    setIsPlay(false);
+    setTimeLeft(25 * 60);
+  };
+
   useEffect(() => {
     if (isPlay) {
       const timer = setTimeout(() => {
@@ -22,6 +27,7 @@ function App() {
   return (
     <>
       <button onClick={onClick}>Start</button>
+      <button onClick={handdleStop}>Reset</button>
       <div>
         {Math.floor(timeLeft / 60)} MIN {timeLeft % 60} SEC
       </div>
