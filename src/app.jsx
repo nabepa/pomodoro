@@ -4,13 +4,16 @@ import Timmer from './components/timmer/timmer';
 
 const FOCUS_TIME = 2;
 const RELAX_TIME = 1;
+const TIME = { focus: 2, relax: 1 };
 
 function App() {
   const [isPlay, setIsPlay] = useState(false);
   const [mode, setMode] = useState('focus');
   const [timeLeft, setTimeLeft] = useState(FOCUS_TIME * 2);
+  // const relaxSound = new Audio(relaxWav);
+  const relaxSound = new Audio(process.env.PUBLIC_URL + '/audios/relax.wav');
 
-  const handdleStart = () => {
+  const onOffTimer = () => {
     setIsPlay(!isPlay);
   };
 
@@ -24,11 +27,9 @@ function App() {
     switch (mode) {
       case 'focus':
         setMode('relax');
-        setTimeLeft(RELAX_TIME * 2);
         break;
       case 'relax':
         setMode('focus');
-        setTimeLeft(FOCUS_TIME * 2);
         break;
       default:
         throw new Error(`${mode} is undefinded mode`);
@@ -38,12 +39,13 @@ function App() {
   useEffect(() => {
     if (isPlay) {
       const timer = setTimeout(() => {
-        setTimeLeft(timeLeft - 1);
+        let t = timeLeft - 1;
+        if (t == -1) {
+          changeMode();
+          t = TIME[mode] * 2;
+        }
+        setTimeLeft(t);
       }, 1000);
-
-      if (timeLeft == -1) {
-        changeMode();
-      }
 
       return () => clearTimeout(timer);
     }
@@ -51,11 +53,9 @@ function App() {
 
   return (
     <>
-      <button onClick={handdleStart}>Start</button>
       <button onClick={handdleStop}>Reset</button>
-      <div>
-        {Math.floor(timeLeft / 60)} MIN {timeLeft % 60} SEC
-      </div>
+      <button onClick={() => relaxSound.play()}>Sound</button>
+      <Timmer timeLeft={timeLeft} onOffTimer={onOffTimer} />
     </>
   );
 }

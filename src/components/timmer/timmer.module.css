@@ -1,0 +1,25 @@
+.timmer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 40rem;
+  background-color: rosybrown;
+}
+
+.startBtn {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  padding: 3em;
+}
+
+.logo {
+  width: 20rem;
+  cursor: pointer;
+  transition: all 0.1s ease-in;
+}
+
+.logo:hover {
+  transform: scale(1.1);
+}
