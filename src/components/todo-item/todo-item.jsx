@@ -2,7 +2,7 @@ import styles from './todo-item.module.css';
 import React from 'react';
 
 const TodoItem = ({ task }) => (
-  <li>
+  <li className={styles.task}>
     {task.name}
     <button className='material-icons'>delete</button>
   </li>

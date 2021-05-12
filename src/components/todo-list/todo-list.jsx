@@ -6,7 +6,7 @@ import TodoAddform from '../todo-addform/todo-addform';
 const TodoList = ({ tasks, addTask }) => {
   return (
     <section className={styles.todoSection}>
-      <h1>Todays's Task</h1>
+      <h1 className={styles.title}>Todays's Task</h1>
       <ul className={styles.todoList}>
         {Object.keys(tasks).map((key) => (
           <TodoItem key={key} task={tasks[key]} />
