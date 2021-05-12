@@ -2,59 +2,61 @@ import styles from './app.module.css';
 import React, { useEffect, useState } from 'react';
 import Timmer from './components/timmer/timmer';
 
-const FOCUS_TIME = 2;
-const RELAX_TIME = 1;
-const TIME = { focus: 2, relax: 1 };
+const TIME = { focus: 5, relax: 4 };
 
 function App() {
   const [isPlay, setIsPlay] = useState(false);
   const [mode, setMode] = useState('focus');
-  const [timeLeft, setTimeLeft] = useState(FOCUS_TIME * 2);
-  // const relaxSound = new Audio(relaxWav);
-  const relaxSound = new Audio(process.env.PUBLIC_URL + '/audios/relax.wav');
+  const [timeLeft, setTimeLeft] = useState(0);
+  const sound = {
+    focus: new Audio(`${process.env.PUBLIC_URL}/audios/focus.wav`),
+    relax: new Audio(`${process.env.PUBLIC_URL}/audios/relax.wav`),
+  };
+
+  const resetTimmer = () => {
+    const resetMode = 'focus';
+    setIsPlay(false);
+    setMode(resetMode);
+    setTimeLeft(TIME[resetMode]);
+  };
 
   const onOffTimer = () => {
     setIsPlay(!isPlay);
   };
 
-  const handdleStop = () => {
-    setIsPlay(false);
-    setMode('focus');
-    setTimeLeft(FOCUS_TIME * 2);
-  };
-
-  const changeMode = () => {
-    switch (mode) {
-      case 'focus':
-        setMode('relax');
-        break;
-      case 'relax':
-        setMode('focus');
-        break;
-      default:
-        throw new Error(`${mode} is undefinded mode`);
-    }
-  };
-
   useEffect(() => {
     if (isPlay) {
       const timer = setTimeout(() => {
-        let t = timeLeft - 1;
-        if (t == -1) {
-          changeMode();
-          t = TIME[mode] * 2;
+        if (timeLeft === 0) {
+          setMode((curMode) => {
+            if (curMode === 'focus') {
+              setMode('relax');
+            } else {
+              setMode('focus');
+            }
+          });
+        } else {
+          setTimeLeft(timeLeft - 1);
+          console.log(`else ${mode}`);
         }
-        setTimeLeft(t);
       }, 1000);
 
       return () => clearTimeout(timer);
     }
   });
 
+  useEffect(() => {
+    setTimeLeft(TIME[mode]);
+  }, [mode]);
+
+  useEffect(() => {
+    isPlay && sound[mode].play();
+  }, [isPlay, mode]);
+
   return (
     <>
-      <button onClick={handdleStop}>Reset</button>
-      <button onClick={() => relaxSound.play()}>Sound</button>
+      <h1>{mode}</h1>
+      <button onClick={resetTimmer}>Reset</button>
       <Timmer timeLeft={timeLeft} onOffTimer={onOffTimer} />
     </>
   );
