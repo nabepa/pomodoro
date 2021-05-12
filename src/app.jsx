@@ -16,13 +16,11 @@ function App() {
   };
 
   const resetTimmer = () => {
-    const resetMode = 'focus';
     setIsPlay(false);
-    setMode(resetMode);
-    setTimeLeft(TIME[resetMode]);
+    setTimeLeft(TIME[mode]);
   };
 
-  const onOffTimer = () => {
+  const onOffTimmer = () => {
     setIsPlay(!isPlay);
   };
 
@@ -58,8 +56,11 @@ function App() {
   return (
     <>
       <Header />
-      {/* <button onClick={resetTimmer}>Reset</button> */}
-      <Timmer timeLeft={timeLeft} onOffTimer={onOffTimer} />
+      <Timmer
+        timeLeft={timeLeft}
+        onOffTimmer={onOffTimmer}
+        resetTimmer={resetTimmer}
+      />
     </>
   );
 }

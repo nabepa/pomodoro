@@ -1,16 +1,20 @@
 import styles from './timmer.module.css';
 import React from 'react';
 
-const Timmer = ({ timeLeft, onOffTimer }) => {
+const Timmer = ({ timeLeft, onOffTimmer, resetTimmer }) => {
   const sec = timeLeft % 60;
   const min = Math.floor(timeLeft / 60) % 60;
 
   const onStart = () => {
-    onOffTimer();
+    onOffTimmer();
+  };
+
+  const onReset = () => {
+    resetTimmer();
   };
 
   return (
-    <div className={styles.timmer}>
+    <section className={styles.timmer}>
       <button className={styles.startBtn}>
         <img
           onClick={onStart}
@@ -19,10 +23,15 @@ const Timmer = ({ timeLeft, onOffTimer }) => {
           alt=''
         />
       </button>
-      <p className={styles.timeText}>
-        {min.toString().padStart(2, '0')}:{sec.toString().padStart(2, '0')}
-      </p>
-    </div>
+      <div className={styles.container}>
+        <p className={styles.timeText}>
+          {min.toString().padStart(2, '0')}:{sec.toString().padStart(2, '0')}
+        </p>
+        <button onClick={onReset} className={`${styles.reset} material-icons`}>
+          restart_alt
+        </button>
+      </div>
+    </section>
   );
 };
 
