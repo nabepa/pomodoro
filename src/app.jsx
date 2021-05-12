@@ -41,9 +41,9 @@ function App() {
         if (timeLeft === 0) {
           setMode((curMode) => {
             if (curMode === 'focus') {
-              setMode('relax'); /////
+              return 'relax';
             } else {
-              setMode('focus');
+              return 'focus';
             }
           });
         } else {
