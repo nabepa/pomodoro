@@ -1,8 +1,10 @@
 import styles from './app.module.css';
 import React, { useEffect, useState } from 'react';
 import Timmer from './components/timmer/timmer';
+import Header from './components/header/header';
 
-const TIME = { focus: 5, relax: 4 };
+// const TIME = { focus: 25 * 60, relax: 5 * 60 };
+const TIME = { focus: 10, relax: 3 };
 
 function App() {
   const [isPlay, setIsPlay] = useState(false);
@@ -55,8 +57,8 @@ function App() {
 
   return (
     <>
-      <h1>{mode}</h1>
-      <button onClick={resetTimmer}>Reset</button>
+      <Header />
+      {/* <button onClick={resetTimmer}>Reset</button> */}
       <Timmer timeLeft={timeLeft} onOffTimer={onOffTimer} />
     </>
   );

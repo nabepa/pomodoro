@@ -1,10 +1,12 @@
+@value makerWhite from '../../common/colors.css';
+
 .timmer {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 40rem;
-  background-color: rosybrown;
+  background-color: makerWhite;
 }
 
 .startBtn {
@@ -22,4 +24,17 @@
 
 .logo:hover {
   transform: scale(1.1);
+}
+
+.timeText {
+  width: 15rem;
+  text-align: center;
+  border: 0.2em solid #6088ae;
+  border-radius: 1em;
+  background-color: #6088ae;
+  margin: 0;
+  font-family: monospace;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: makerWhite;
 }

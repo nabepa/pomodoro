@@ -19,9 +19,9 @@ const Timmer = ({ timeLeft, onOffTimer }) => {
           alt=''
         />
       </button>
-      <h1>
+      <p className={styles.timeText}>
         {min.toString().padStart(2, '0')}:{sec.toString().padStart(2, '0')}
-      </h1>
+      </p>
     </div>
   );
 };

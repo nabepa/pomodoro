@@ -1,0 +1,19 @@
+@value makerTomato, makerWhite from '../../common/colors.css';
+
+.header {
+  background-color: makerTomato;
+  text-align: right;
+}
+
+.logInOut,
+.insights,
+.settings {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  font-size: 2rem;
+  color: makerWhite;
+  padding: 0.1em;
+  margin: 0.1em 0.2em;
+  cursor: pointer;
+}
