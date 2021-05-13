@@ -1,4 +1,5 @@
 @value makerTomato, makerWhite from '../../common/colors.css';
+@value mediumFont from '../../common/size.css';
 
 .header {
   background-color: makerTomato;
@@ -11,9 +12,9 @@
   border: none;
   outline: none;
   background-color: transparent;
-  font-size: 2rem;
+  font-size: mediumFont;
   color: makerWhite;
   padding: 0.1em;
-  margin: 0.1em 0.2em;
+  margin: 0.2em;
   cursor: pointer;
 }

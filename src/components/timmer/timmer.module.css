@@ -1,4 +1,5 @@
 @value makerWhite, makerDarkGreen from '../../common/colors.css';
+@value timmerFont from '../../common/size.css';
 
 .timmer {
   width: 100%;
@@ -18,7 +19,7 @@
 }
 
 .logo {
-  width: 15rem;
+  width: 50%;
   cursor: pointer;
   transition: all 0.1s ease-in;
 }
@@ -28,7 +29,6 @@
 }
 
 .container {
-  width: 15rem;
   display: flex;
   border-radius: 1em;
   background-color: makerDarkGreen;
@@ -38,7 +38,7 @@
   margin: 0.5em;
   font-family: monospace;
   flex-grow: 1;
-  font-size: 2.5rem;
+  font-size: timmerFont;
   color: makerWhite;
   font-weight: 600;
 }
@@ -50,6 +50,6 @@
   padding: 0.1em;
   margin: 0 0.2em;
   cursor: pointer;
-  font-size: 2.5rem;
+  font-size: timmerFont;
   font-weight: 600;
 }

@@ -1,5 +1,5 @@
 @value makerWhite, makerDarkGreen from '../../common/colors.css';
-@value todoFont from '../../common/size.css';
+@value mediumFont, largeFont from '../../common/size.css';
 
 .todo {
   display: flex;
@@ -16,10 +16,10 @@
   color: makerDarkGreen;
   position: relative;
   margin: 0;
-  top: -1.5rem;
-  height: 3rem;
-  line-height: 3rem;
-  font-size: 2rem;
+  top: calc(largeFont/-2);
+  height: largeFont;
+  line-height: largeFont;
+  font-size: largeFont;
   border-left: 0.5em solid makerWhite;
   border-right: 0.5em solid makerWhite;
   background-color: makerWhite;
@@ -33,7 +33,7 @@
   width: 100%;
   padding: 0 2em;
   margin: 0;
-  font-size: todoFont;
+  font-size: mediumFont;
   font-weight: 600;
   color: makerDarkGreen;
   overflow: scroll;
