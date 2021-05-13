@@ -35,6 +35,14 @@ function App() {
     });
   };
 
+  const deleteTask = (task) => {
+    setTasks((tasks) => {
+      const updated = { ...tasks };
+      delete updated[task.id];
+      return updated;
+    });
+  };
+
   useEffect(() => {
     if (isPlay) {
       const timer = setTimeout(() => {
@@ -72,7 +80,7 @@ function App() {
         onOffTimmer={onOffTimmer}
         resetTimmer={resetTimmer}
       />
-      <TodoList tasks={tasks} addTask={addTask} />
+      <TodoList tasks={tasks} addTask={addTask} deleteTask={deleteTask} />
     </div>
   );
 }
