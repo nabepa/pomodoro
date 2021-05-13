@@ -7,6 +7,7 @@
   justify-content: center;
   align-items: center;
   background-color: makerWhite;
+  margin-bottom: 4em;
 }
 
 .startBtn {
@@ -31,7 +32,6 @@
   display: flex;
   border-radius: 1em;
   background-color: makerDarkGreen;
-  margin-bottom: 0.4em;
 }
 .timeText {
   text-align: center;
