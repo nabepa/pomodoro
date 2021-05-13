@@ -65,7 +65,7 @@ function App() {
   }, [isPlay, mode]);
 
   return (
-    <>
+    <div className={styles.app}>
       <Header />
       <Timmer
         timeLeft={timeLeft}
@@ -73,7 +73,7 @@ function App() {
         resetTimmer={resetTimmer}
       />
       <TodoList tasks={tasks} addTask={addTask} />
-    </>
+    </div>
   );
 }
 

@@ -1,22 +1,36 @@
-.todoSection {
-  background-color: wheat;
+@value makerWhite, makerDarkGreen from '../../common/colors.css';
+
+.todo {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  height: 100%;
   width: 70%;
-  height: 20rem;
   margin: 2em auto;
+  border: 0.4rem solid makerDarkGreen;
   border-radius: 2em;
+  position: relative;
 }
 
 .title {
+  color: makerDarkGreen;
+  position: absolute;
+  margin: 0;
+  top: -1.5rem;
+  height: 3rem;
+  line-height: 3rem;
+  font-size: 1.5rem;
+  border-left: 0.5em solid makerWhite;
+  border-right: 0.5em solid makerWhite;
+  background-color: makerWhite;
 }
 
-.todoList {
+.list {
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: left;
   width: 100%;
+  padding: 0;
+  margin: 0;
 }
