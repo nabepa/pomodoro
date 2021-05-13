@@ -31,6 +31,7 @@
   display: flex;
   border-radius: 1em;
   background-color: makerDarkGreen;
+  margin-bottom: 0.4em;
 }
 .timeText {
   text-align: center;

@@ -7,7 +7,7 @@ const TodoList = ({ tasks, addTask }) => {
   return (
     <section className={styles.todo}>
       <h1 className={styles.title}>Todays's Task</h1>
-      <ul className={styles.list}>
+      <ul className={styles.lists}>
         {Object.keys(tasks).map((key) => (
           <TodoItem key={key} task={tasks[key]} />
         ))}

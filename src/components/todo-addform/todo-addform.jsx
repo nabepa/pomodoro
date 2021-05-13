@@ -12,7 +12,7 @@ const TodoAddform = ({ addTask }) => {
     formRef.current.reset();
   };
   return (
-    <form ref={formRef} className={styles.addForm} onSubmit={onSubmit}>
+    <form ref={formRef} className={styles.form} onSubmit={onSubmit}>
       <input
         ref={inputRef}
         className={styles.input}
