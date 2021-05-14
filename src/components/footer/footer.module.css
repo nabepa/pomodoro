@@ -1,0 +1,17 @@
+@value makerWhite, makerTomato from '../../common/colors.css';
+@value mediumFont from '../../common/size.css';
+
+.footer {
+  background-color: makerTomato;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.test {
+  font-size: mediumFont;
+  color: makerWhite;
+  padding: 0.1em;
+  margin: 0.2em;
+}

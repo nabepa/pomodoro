@@ -1,7 +1,7 @@
 import styles from './todo-addform.module.css';
-import React, { useRef } from 'react';
+import React, { memo, useRef } from 'react';
 
-const TodoAddform = ({ addTask }) => {
+const TodoAddform = memo(({ addTask }) => {
   const formRef = useRef();
   const inputRef = useRef();
 
@@ -21,6 +21,6 @@ const TodoAddform = ({ addTask }) => {
       />
     </form>
   );
-};
+});
 
 export default TodoAddform;

@@ -1,9 +1,9 @@
 import styles from './todo-list.module.css';
-import React from 'react';
+import React, { memo } from 'react';
 import TodoItem from '../todo-item/todo-item';
 import TodoAddform from '../todo-addform/todo-addform';
 
-const TodoList = ({ tasks, addTask, deleteTask }) => {
+const TodoList = memo(({ tasks, addTask, deleteTask }) => {
   return (
     <section className={styles.todo}>
       <h1 className={styles.title}>Todays's Task</h1>
@@ -15,6 +15,6 @@ const TodoList = ({ tasks, addTask, deleteTask }) => {
       <TodoAddform addTask={addTask} />
     </section>
   );
-};
+});
 
 export default TodoList;

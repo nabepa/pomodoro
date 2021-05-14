@@ -16,6 +16,7 @@
   outline: none;
   border: none;
   padding: 2em;
+  position: relative;
 }
 
 .logo {
@@ -23,6 +24,30 @@
   cursor: pointer;
   transition: all 0.1s ease-in;
 }
+
+/* .startBtn::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 20%;
+  width: 60%;
+  padding-top: 60%;
+  cursor: none;
+  border-radius: 50%;
+  border-top: 5px solid #ff5040;
+  animation: spin 5s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+} */
 
 .logo:hover {
   transform: scale(1.1);

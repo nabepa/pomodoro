@@ -1,22 +1,21 @@
 import styles from './app.module.css';
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import Timmer from './components/timmer/timmer';
 import Header from './components/header/header';
 import TodoList from './components/todo-list/todo-list';
+import Footer from './components/footer/footer';
 
-// const TIME = { focus: 25 * 60, relax: 5 * 60 };
-const TIME = { focus: 10, relax: 3 };
+const TIME = { focus: 25 * 60, relax: 5 * 60 };
+const SOUND = {
+  focus: new Audio(`${process.env.PUBLIC_URL}/audios/focus.wav`),
+  relax: new Audio(`${process.env.PUBLIC_URL}/audios/relax.wav`),
+};
 
 function App() {
   const [isPlay, setIsPlay] = useState(false);
   const [mode, setMode] = useState('focus');
   const [timeLeft, setTimeLeft] = useState(0);
   const [tasks, setTasks] = useState({});
-
-  const sound = {
-    focus: new Audio(`${process.env.PUBLIC_URL}/audios/focus.wav`),
-    relax: new Audio(`${process.env.PUBLIC_URL}/audios/relax.wav`),
-  };
 
   const resetTimmer = () => {
     setIsPlay(false);
@@ -27,21 +26,21 @@ function App() {
     setIsPlay(!isPlay);
   };
 
-  const addTask = (task) => {
+  const addTask = useCallback((task) => {
     setTasks((tasks) => {
       const updated = { ...tasks };
       updated[task.id] = task;
       return updated;
     });
-  };
+  }, []);
 
-  const deleteTask = (task) => {
+  const deleteTask = useCallback((task) => {
     setTasks((tasks) => {
       const updated = { ...tasks };
       delete updated[task.id];
       return updated;
     });
-  };
+  }, []);
 
   useEffect(() => {
     if (isPlay) {
@@ -56,7 +55,6 @@ function App() {
           });
         } else {
           setTimeLeft(timeLeft - 1);
-          console.log(`else ${mode}`);
         }
       }, 1000);
 
@@ -69,7 +67,7 @@ function App() {
   }, [mode]);
 
   useEffect(() => {
-    isPlay && sound[mode].play();
+    isPlay && SOUND[mode].play();
   }, [isPlay, mode]);
 
   return (
@@ -81,6 +79,7 @@ function App() {
         resetTimmer={resetTimmer}
       />
       <TodoList tasks={tasks} addTask={addTask} deleteTask={deleteTask} />
+      <Footer />
     </div>
   );
 }

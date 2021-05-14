@@ -1,7 +1,7 @@
 import styles from './todo-item.module.css';
-import React from 'react';
+import React, { memo } from 'react';
 
-const TodoItem = ({ task, deleteTask }) => {
+const TodoItem = memo(({ task, deleteTask }) => {
   const onClick = () => {
     deleteTask(task);
   };
@@ -16,6 +16,6 @@ const TodoItem = ({ task, deleteTask }) => {
       </button>
     </li>
   );
-};
+});
 
 export default TodoItem;
