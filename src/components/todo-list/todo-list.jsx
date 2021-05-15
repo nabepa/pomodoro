@@ -1,18 +1,35 @@
 import styles from './todo-list.module.css';
-import React, { memo } from 'react';
+import React, { memo, useCallback, useState } from 'react';
+import TodoAdd from '../todo-add/todo-add';
 import TodoItem from '../todo-item/todo-item';
-import TodoAddform from '../todo-addform/todo-addform';
 
-const TodoList = memo(({ tasks, addTask, deleteTask }) => {
+const TodoList = memo((props) => {
+  const [tasks, setTasks] = useState({});
+
+  const addTask = useCallback((task) => {
+    setTasks((tasks) => {
+      const updated = { ...tasks };
+      updated[task.id] = task;
+      return updated;
+    });
+  }, []);
+
+  const deleteTask = useCallback((task) => {
+    setTasks((tasks) => {
+      const updated = { ...tasks };
+      delete updated[task.id];
+      return updated;
+    });
+  }, []);
+
   return (
-    <section className={styles.todo}>
-      <h1 className={styles.title}>Todays's Task</h1>
-      <ul className={styles.lists}>
+    <section>
+      <ul>
         {Object.keys(tasks).map((key) => (
           <TodoItem key={key} task={tasks[key]} deleteTask={deleteTask} />
         ))}
       </ul>
-      <TodoAddform addTask={addTask} />
+      <TodoAdd addTask={addTask} />
     </section>
   );
 });

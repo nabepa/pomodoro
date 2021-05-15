@@ -2,16 +2,14 @@ import styles from './todo-item.module.css';
 import React, { memo } from 'react';
 
 const TodoItem = memo(({ task, deleteTask }) => {
-  const onClick = () => {
+  const onDelete = () => {
     deleteTask(task);
   };
+
   return (
-    <li className={styles.task}>
-      <span className={styles.name}>{task.name}</span>
-      <button
-        onClick={onClick}
-        className={`${styles.deleteBtn} material-icons`}
-      >
+    <li>
+      <span>{task.name}</span>
+      <button onClick={onDelete} className='material-icons'>
         delete
       </button>
     </li>

@@ -1,7 +1,7 @@
-import styles from './todo-addform.module.css';
+import styles from './todo-add.module.css';
 import React, { memo, useRef } from 'react';
 
-const TodoAddform = memo(({ addTask }) => {
+const TodoAdd = memo(({ addTask }) => {
   const formRef = useRef();
   const inputRef = useRef();
 
@@ -12,15 +12,10 @@ const TodoAddform = memo(({ addTask }) => {
     formRef.current.reset();
   };
   return (
-    <form ref={formRef} className={styles.form} onSubmit={onSubmit}>
-      <input
-        ref={inputRef}
-        className={styles.input}
-        type='text'
-        placeholder='Input your task!'
-      />
+    <form ref={formRef} onSubmit={onSubmit}>
+      <input ref={inputRef} type='text' />
     </form>
   );
 });
 
-export default TodoAddform;
+export default TodoAdd;

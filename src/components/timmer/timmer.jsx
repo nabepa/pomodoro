@@ -1,37 +1,82 @@
 import styles from './timmer.module.css';
-import React from 'react';
+import parseTimmer from '../../util/parseTimmer';
+import React, { useCallback, useEffect, useState } from 'react';
+import SessionTimeController from '../session-time-controller/session-time-controller';
 
-const Timmer = ({ timeLeft, onOffTimmer, resetTimmer }) => {
-  const sec = timeLeft % 60;
-  const min = Math.floor(timeLeft / 60) % 60;
+const focusAlert = new Audio(`${process.env.PUBLIC_URL}/audios/focus.wav`);
+const breakAlert = new Audio(`${process.env.PUBLIC_URL}/audios/relax.wav`);
 
-  const onStart = () => {
-    onOffTimmer();
+const Timmer = (props) => {
+  // const [focusTime, setFocusTime] = useState(10 * 60);
+  // const [breakTime, setBreakTime] = useState(5 * 50);
+  const [focusTime, setFocusTime] = useState(6);
+  const [breakTime, setBreakTime] = useState(4);
+  const [timeLeft, setTimeLeft] = useState(focusTime);
+  const [timmerId, setTimmerId] = useState(null);
+  const [sessionType, setSessionType] = useState('Focus'); // 'Focus' | 'Break'
+
+  const isStarted = timmerId !== null; // modifed when this component is re-rendered
+
+  /**
+   * Listen to timeLeft
+   */
+  useEffect(() => {
+    if (timeLeft === -1) {
+      if (sessionType === 'Focus') {
+        setSessionType('Break');
+        setTimeLeft(breakTime);
+        breakAlert.play();
+      } else {
+        setSessionType('Focus');
+        setTimeLeft(focusTime);
+        focusAlert.play();
+      }
+    }
+  }, [timeLeft, focusTime, breakTime, sessionType]);
+
+  const changeSessionTime = useCallback((session, val) => {
+    session === 'Focus' ? setFocusTime(val) : setBreakTime(val);
+  }, []);
+
+  /**
+   * Start and Pause Timmer
+   */
+  const onStartPause = () => {
+    if (isStarted) {
+      timmerId && clearInterval(timmerId);
+      setTimmerId(null);
+    } else {
+      const newTimmerId = setInterval(() => {
+        setTimeLeft((prevTimeLeft) => prevTimeLeft - 1);
+      }, 1000);
+      setTimmerId(newTimmerId);
+    }
   };
 
   const onReset = () => {
-    resetTimmer();
+    if (timmerId) {
+      clearInterval(timmerId);
+      setTimmerId(null);
+    }
+    sessionType === 'Focus' ? setTimeLeft(focusTime) : setTimeLeft(breakTime);
   };
 
   return (
-    <section className={styles.timmer}>
-      <button className={styles.startBtn}>
-        <img
-          onClick={onStart}
-          className={styles.logo}
-          src='/images/logo.png'
-          alt=''
-        />
-      </button>
-      <div className={styles.container}>
-        <p className={styles.timeText}>
-          {min.toString().padStart(2, '0')}:{sec.toString().padStart(2, '0')}
-        </p>
-        <button onClick={onReset} className={`${styles.reset} material-icons`}>
-          restart_alt
-        </button>
-      </div>
-    </section>
+    <>
+      <SessionTimeController
+        session='Focus'
+        sessionTime={focusTime}
+        changeSessionTime={changeSessionTime}
+      />
+      <SessionTimeController
+        session='Break'
+        sessionTime={breakTime}
+        changeSessionTime={changeSessionTime}
+      />
+      <button onClick={onStartPause}>start</button>
+      <button onClick={onReset}>reset</button>
+      <h1>{parseTimmer(timeLeft)}</h1>
+    </>
   );
 };
 
