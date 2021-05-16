@@ -2,6 +2,7 @@ import styles from './timmer.module.css';
 import parseTimmer from '../../util/parseTimmer';
 import React, { useCallback, useEffect, useState } from 'react';
 import SessionTimeController from '../session-time-controller/session-time-controller';
+import VolumeController from '../volume-controller/volume-controller';
 
 const focusAlert = new Audio(`${process.env.PUBLIC_URL}/audios/focus.wav`);
 const breakAlert = new Audio(`${process.env.PUBLIC_URL}/audios/relax.wav`);
@@ -14,6 +15,7 @@ const Timmer = (props) => {
   const [timeLeft, setTimeLeft] = useState(focusTime);
   const [timmerId, setTimmerId] = useState(null);
   const [sessionType, setSessionType] = useState('Focus'); // 'Focus' | 'Break'
+  const [volume, setVolume] = useState(30);
 
   const isStarted = timmerId !== null; // modifed when this component is re-rendered
 
@@ -61,6 +63,13 @@ const Timmer = (props) => {
     sessionType === 'Focus' ? setTimeLeft(focusTime) : setTimeLeft(breakTime);
   };
 
+  const handdleVolume = (event, vol) => {
+    setVolume(vol);
+    const newVol = vol / 100;
+    focusAlert.volume = newVol;
+    breakAlert.volume = newVol;
+  };
+
   return (
     <>
       <SessionTimeController
@@ -76,6 +85,8 @@ const Timmer = (props) => {
       <button onClick={onStartPause}>start</button>
       <button onClick={onReset}>reset</button>
       <h1>{parseTimmer(timeLeft)}</h1>
+      <VolumeController volume={volume} handdleVolume={handdleVolume} />
+      {volume}
     </>
   );
 };
