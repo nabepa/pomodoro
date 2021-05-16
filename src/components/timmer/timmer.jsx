@@ -63,32 +63,61 @@ const Timmer = (props) => {
     sessionType === 'Focus' ? setTimeLeft(focusTime) : setTimeLeft(breakTime);
   };
 
-  const handdleVolume = (event, vol) => {
+  const handdleVolume = useCallback((event, vol) => {
     setVolume(vol);
     const newVol = vol / 100;
     focusAlert.volume = newVol;
     breakAlert.volume = newVol;
-  };
+  }, []);
 
   return (
-    <>
-      <SessionTimeController
-        session='Focus'
-        sessionTime={focusTime}
-        changeSessionTime={changeSessionTime}
-      />
-      <SessionTimeController
-        session='Break'
-        sessionTime={breakTime}
-        changeSessionTime={changeSessionTime}
-      />
-      <button onClick={onStartPause}>start</button>
-      <button onClick={onReset}>reset</button>
-      <h1>{parseTimmer(timeLeft)}</h1>
-      <VolumeController volume={volume} handdleVolume={handdleVolume} />
-      {volume}
-    </>
+    <section className={styles.timmer}>
+      <div className={styles.sessions}>
+        <SessionTimeController
+          session='Focus'
+          sessionTime={focusTime}
+          changeSessionTime={changeSessionTime}
+        />
+        <SessionTimeController
+          session='Break'
+          sessionTime={breakTime}
+          changeSessionTime={changeSessionTime}
+        />
+      </div>
+      <div className={styles.timeContainer}>
+        <span className={styles.time}>{parseTimmer(timeLeft)}</span>
+        <div className={`${styles.spinner} ${getStyles(sessionType)} `}></div>
+      </div>
+      <div className={styles.ui}>
+        <button
+          className={`${styles.button} material-icons`}
+          onClick={onStartPause}
+        >
+          {isStarted ? 'pause' : 'play_arrow'}
+        </button>
+        <button
+          className={`${styles.button} ${styles.restart} material-icons`}
+          onClick={onReset}
+        >
+          restart_alt
+        </button>
+        <div className={styles.volume}>
+          <VolumeController volume={volume} handdleVolume={handdleVolume} />
+        </div>
+      </div>
+    </section>
   );
 };
+
+function getStyles(sessionType) {
+  switch (sessionType) {
+    case 'Focus':
+      return styles.focus;
+    case 'Break':
+      return styles.break;
+    default:
+      throw new Error(`unknown sessionType: ${sessionType}`);
+  }
+}
 
 export default Timmer;

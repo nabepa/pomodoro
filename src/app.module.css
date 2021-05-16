@@ -1,0 +1,24 @@
+@value makerNightRider from './common/colors.css';
+
+* {
+  outline: 0;
+  box-sizing: border-box;
+}
+
+.app {
+  width: 100%;
+  min-width: 500px;
+  max-width: 1000px;
+  height: 100vh;
+  background-color: makerNightRider;
+  display: flex;
+  flex-direction: column;
+}
+
+.timmerContainer {
+  height: 50%;
+}
+
+.todoContainer {
+  height: 50%;
+}

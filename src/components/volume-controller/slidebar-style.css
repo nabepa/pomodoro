@@ -1,0 +1,12 @@
+@value makerGreen from '../../common/colors.css';
+
+.MuiSlider-root {
+  color: rgb(200, 68, 64);
+  /* color: rgb(18, 112, 66); */
+}
+.MuiSlider-thumb:hover,
+.MuiSlider-thumb:active,
+.MuiSlider-thumb:focus {
+  /* box-shadow: 0 0 0 5px rgba(18, 112, 66, 0.4); */
+  box-shadow: 0 0 0 5px rgba(200, 68, 64, 0.4);
+}

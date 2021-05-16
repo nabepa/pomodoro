@@ -1,0 +1,11 @@
+@value makerWhite, makerGrey from '../../common/colors.css';
+
+.controller {
+  color: makerGrey;
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  margin: auto 0.5em;
+}

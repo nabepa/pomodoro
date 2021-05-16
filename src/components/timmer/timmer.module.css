@@ -1,0 +1,85 @@
+@value makerWhite, makerGrey, makerTomato, makerGreen from '../../common/colors.css';
+
+.timmer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sessions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.timeContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+  position: relative;
+}
+
+.time {
+  color: makerWhite;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  font-family: monospace;
+  position: relative;
+}
+
+.spinner.focus {
+  border-top: 0.1rem solid makerTomato;
+}
+.spinner.break {
+  border-top: 0.1rem solid makerGreen;
+}
+
+.spinner {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  animation: spin 2s linear infinite;
+}
+
+.ui {
+  display: flex;
+  width: 100%;
+  margin: 0.5em 0;
+}
+
+.button {
+  background-color: transparent;
+  color: makerGrey;
+  cursor: pointer;
+  margin: auto 0.5em;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.5em;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.button:hover {
+  transform: scale(1.1);
+}
+.button.restart:active {
+  transform: scale(1.2);
+}
+
+.volume {
+  flex: 1;
+  margin: auto 0;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

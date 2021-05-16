@@ -13,10 +13,23 @@ const SessionTimeController = memo(
     };
 
     return (
-      <div>
-        <button onClick={increaseTime}>+</button>
-        <span>{parseTimmer(sessionTime)}</span>
-        <button onClick={decreaseTime}>-</button>
+      <div className={styles.container}>
+        <span className={styles.sessionName}>{session}</span>
+        <div className={styles.controller}>
+          <button
+            className={`${styles.btn} material-icons`}
+            onClick={decreaseTime}
+          >
+            remove
+          </button>
+          <span className={styles.sessionTime}>{parseTimmer(sessionTime)}</span>
+          <button
+            className={`${styles.btn} material-icons`}
+            onClick={increaseTime}
+          >
+            add
+          </button>
+        </div>
       </div>
     );
   }
