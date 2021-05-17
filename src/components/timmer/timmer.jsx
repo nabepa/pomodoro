@@ -102,7 +102,11 @@ const Timmer = (props) => {
           restart_alt
         </button>
         <div className={styles.volume}>
-          <VolumeController volume={volume} handdleVolume={handdleVolume} />
+          <VolumeController
+            volume={volume}
+            handdleVolume={handdleVolume}
+            sessionType={sessionType}
+          />
         </div>
       </div>
     </section>
