@@ -1,3 +1,25 @@
-/* .todoList {
-  flex-grow: 1;
-} */
+@value makerFoggyGrey from '../../common/colors.css';
+
+.todoList {
+  width: 80%;
+  height: 100%;
+  max-height: 15rem;
+  margin: 0 auto;
+}
+
+.title {
+  text-align: center;
+  margin: 0;
+  text-transform: uppercase;
+  color: makerFoggyGrey;
+  font-size: 1.5rem;
+  font-weight: normal;
+}
+
+.ul {
+  height: 100%;
+  overflow-y: auto;
+  list-style: none;
+  margin: 0.2em 0;
+  padding: 0.2em 0;
+}

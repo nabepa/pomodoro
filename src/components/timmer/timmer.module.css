@@ -8,7 +8,6 @@
 
 .sessions {
   display: flex;
-  justify-content: space-between;
 }
 
 .timeContainer {
@@ -57,7 +56,7 @@
 .ui {
   display: flex;
   width: 100%;
-  margin: 0.5em 0;
+  margin: 1em 0;
 }
 
 .button {

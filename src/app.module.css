@@ -1,7 +1,7 @@
 @value makerNightRider from './common/colors.css';
+@value mediaQuery from './common/size.css';
 
 * {
-  outline: 0;
   box-sizing: border-box;
 }
 
@@ -17,8 +17,16 @@
 
 .timmerContainer {
   height: 50%;
+  margin: 1em;
 }
 
 .todoContainer {
   height: 50%;
+}
+
+@media screen and (max-height: mediaQuery) {
+  .app {
+    flex-direction: row;
+    align-items: center;
+  }
 }

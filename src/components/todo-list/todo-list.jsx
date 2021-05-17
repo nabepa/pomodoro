@@ -24,7 +24,8 @@ const TodoList = memo((props) => {
 
   return (
     <section className={styles.todoList}>
-      <ul>
+      <h1 className={styles.title}>to-do</h1>
+      <ul className={styles.ul}>
         {Object.keys(tasks).map((key) => (
           <TodoItem key={key} task={tasks[key]} deleteTask={deleteTask} />
         ))}

@@ -1,0 +1,31 @@
+@value makerFoggyGrey, makerGrey from '../../common/colors.css';
+
+.todoItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0.5em;
+}
+
+.name {
+  overflow-x: auto;
+  color: makerFoggyGrey;
+}
+
+.button {
+  outline: 0;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  color: makerGrey;
+  transition: all 0.1s ease-in-out;
+}
+
+.button:hover {
+  color: makerFoggyGrey;
+  transform: scale(1.1);
+}
+
+.button:active {
+  transform: scale(1.2);
+}

@@ -12,8 +12,13 @@ const TodoAdd = memo(({ addTask }) => {
     formRef.current.reset();
   };
   return (
-    <form ref={formRef} onSubmit={onSubmit}>
-      <input ref={inputRef} type='text' />
+    <form ref={formRef} className={styles.form} onSubmit={onSubmit}>
+      <input
+        ref={inputRef}
+        className={styles.input}
+        type='text'
+        placeholder='Input your task!'
+      />
     </form>
   );
 });

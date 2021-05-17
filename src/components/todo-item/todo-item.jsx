@@ -7,9 +7,9 @@ const TodoItem = memo(({ task, deleteTask }) => {
   };
 
   return (
-    <li>
-      <span>{task.name}</span>
-      <button onClick={onDelete} className='material-icons'>
+    <li className={styles.todoItem}>
+      <span className={styles.name}>{task.name}</span>
+      <button className={`${styles.button} material-icons`} onClick={onDelete}>
         delete
       </button>
     </li>

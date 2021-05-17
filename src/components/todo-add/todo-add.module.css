@@ -1,0 +1,21 @@
+@value makerFoggyGrey from '../../common/colors.css';
+
+.input {
+  width: 100%;
+  font-size: 1.1rem;
+  border: none;
+  outline: 0;
+  background-color: transparent;
+  border-bottom: 0.1rem solid makerFoggyGrey;
+  color: makerFoggyGrey;
+  padding: 0.2em;
+  transition: all 0.2s ease-in-out;
+}
+
+.input::placeholder {
+  color: makerFoggyGrey;
+}
+
+.input:focus::placeholder {
+  color: transparent;
+}
