@@ -22,9 +22,18 @@ const VolumeController = memo(({ volume, handdleVolume, sessionType }) => {
     },
   });
 
+  const onMute = (event) => {
+    handdleVolume(event, 0);
+  };
+  const onMax = (event) => {
+    handdleVolume(event, 100);
+  };
+
   return (
     <div className={styles.controller}>
-      <i className={`${styles.icon} material-icons`}>volume_down</i>
+      <button onClick={onMute} className={`${styles.button} material-icons`}>
+        volume_down
+      </button>
       <ThemeProvider theme={theme}>
         <Slider
           valueLabelDisplay='auto'
@@ -34,7 +43,9 @@ const VolumeController = memo(({ volume, handdleVolume, sessionType }) => {
           color={sessionType === 'Focus' ? 'primary' : 'secondary'}
         />
       </ThemeProvider>
-      <i className={`${styles.icon} material-icons`}>volume_up</i>
+      <button onClick={onMax} className={`${styles.button} material-icons`}>
+        volume_up
+      </button>
     </div>
   );
 });

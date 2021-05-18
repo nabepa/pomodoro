@@ -1,11 +1,24 @@
 @value makerWhite, makerGrey from '../../common/colors.css';
 
 .controller {
-  color: makerGrey;
   display: flex;
   align-items: center;
 }
 
-.icon {
+.button {
   margin: auto 0.5em;
+  border: none;
+  outline: 0;
+  cursor: pointer;
+  background-color: transparent;
+  color: makerGrey;
+  transition: all 0.2s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.button:hover {
+  transform: scale(1.1);
+}
+
+.button:active {
+  transform: scale(1.2);
 }
