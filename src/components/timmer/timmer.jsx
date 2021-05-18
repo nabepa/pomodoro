@@ -8,10 +8,8 @@ const focusAlert = new Audio(`${process.env.PUBLIC_URL}/audios/focus.wav`);
 const breakAlert = new Audio(`${process.env.PUBLIC_URL}/audios/relax.wav`);
 
 const Timmer = (props) => {
-  // const [focusTime, setFocusTime] = useState(10 * 60);
-  // const [breakTime, setBreakTime] = useState(5 * 50);
-  const [focusTime, setFocusTime] = useState(6);
-  const [breakTime, setBreakTime] = useState(4);
+  const [focusTime, setFocusTime] = useState(25 * 60);
+  const [breakTime, setBreakTime] = useState(5 * 60);
   const [timeLeft, setTimeLeft] = useState(focusTime);
   const [timmerId, setTimmerId] = useState(null);
   const [sessionType, setSessionType] = useState('Focus'); // 'Focus' | 'Break'

@@ -13,10 +13,10 @@
 }
 
 .button {
-  outline: 0;
   border: none;
-  background-color: transparent;
+  outline: 0;
   cursor: pointer;
+  background-color: transparent;
   color: makerGrey;
   transition: all 0.1s ease-in-out;
 }
