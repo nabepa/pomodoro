@@ -1,15 +1,31 @@
-@value makerFoggyGrey, makerGrey from '../../common/colors.css';
+@value makerFoggyGrey, makerGrey, makerLightGrey from '../../common/colors.css';
 
 .todoItem {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 0.5em;
+  cursor: pointer;
+}
+
+.todoItem:hover .name,
+.todoItem:hover .button {
+  color: LightGrey;
+}
+
+.todoItem:active .name {
+  transform: scale(1.1);
 }
 
 .name {
   overflow-x: auto;
   color: makerFoggyGrey;
+  transition: all 0.1s ease-in-out;
+}
+
+.name.done {
+  text-decoration-line: line-through;
+  text-decoration-thickness: 0.2rem;
 }
 
 .button {
@@ -19,6 +35,7 @@
   background-color: transparent;
   color: makerGrey;
   transition: all 0.1s ease-in-out;
+  user-select: none;
 }
 
 .button:hover {
