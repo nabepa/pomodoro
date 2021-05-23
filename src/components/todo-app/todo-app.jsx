@@ -39,16 +39,17 @@ const TodoApp = memo((props) => {
     });
   };
 
-  const addTask = (task) => {
-    console.log('task');
-  };
-  // const addTask = useCallback((task) => {
-  //   setTasks((tasks) => {
-  //     const updated = { ...tasks };
-  //     updated[task.id] = task;
-  //     return updated;
-  //   });
-  // }, []);
+  const addTask = useCallback((task) => {
+    setData((data) => {
+      const newTasks = { ...data.tasks };
+      newTasks[task.id] = { id: `${task.id}`, name: task.name };
+
+      const newTasksOrder = [...data.tasksOrder];
+      newTasksOrder.push(`${task.id}`);
+
+      return { tasks: newTasks, tasksOrder: newTasksOrder };
+    });
+  }, []);
 
   const deleteTask = useCallback((task, index) => {
     setData((data) => {
