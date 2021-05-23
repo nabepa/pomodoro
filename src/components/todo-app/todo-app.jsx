@@ -1,0 +1,73 @@
+import styles from './todo-app.module.css';
+import React, { memo, useCallback, useState } from 'react';
+import { DragDropContext } from 'react-beautiful-dnd';
+import TodoList from '../todo-list/todo-list';
+import TodoAdd from '../todo-add/todo-add';
+
+const TodoApp = memo((props) => {
+  const [data, setData] = useState({
+    tasks: {
+      'task-1': { id: 'task-1', name: 'do1' },
+      'task-2': { id: 'task-2', name: 'do2' },
+      'task-3': { id: 'task-3', name: 'do3' },
+    },
+    tasksOrder: ['task-1', 'task-2', 'task-3'],
+  });
+
+  const onDragEnd = (result) => {
+    const { destination, source, draggableId } = result;
+    if (!destination) {
+      return;
+    }
+    if (destination.index === source.index) {
+      return;
+    }
+
+    setData((data) => {
+      const newTaskOrder = [...data.tasksOrder];
+      newTaskOrder.splice(source.index, 1);
+      newTaskOrder.splice(destination.index, 0, draggableId);
+
+      const newData = {
+        ...data,
+        tasksOrder: newTaskOrder,
+      };
+
+      return newData;
+    });
+  };
+
+  const addTask = (task) => {
+    console.log('task');
+  };
+  // const addTask = useCallback((task) => {
+  //   setTasks((tasks) => {
+  //     const updated = { ...tasks };
+  //     updated[task.id] = task;
+  //     return updated;
+  //   });
+  // }, []);
+
+  const deleteTask = (task) => {
+    console.log('task');
+  };
+  // const deleteTask = useCallback((task) => {
+  //   setTasks((tasks) => {
+  //     const updated = { ...tasks };
+  //     delete updated[task.id];
+  //     return updated;
+  //   });
+  // }, []);
+
+  return (
+    <section className={styles.todoList}>
+      <h1 className={styles.title}>to-do</h1>
+      <DragDropContext onDragEnd={onDragEnd}>
+        <TodoList data={data} deleteTask={deleteTask} />
+      </DragDropContext>
+      <TodoAdd addTask={addTask} />
+    </section>
+  );
+});
+
+export default TodoApp;

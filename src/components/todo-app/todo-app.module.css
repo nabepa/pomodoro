@@ -1,0 +1,21 @@
+@value makerFoggyGrey from '../../common/colors.css';
+
+.todoApp {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  max-width: 28rem;
+  max-height: 18rem;
+  margin: 0 auto;
+  padding: 0 2em;
+}
+
+.title {
+  text-align: center;
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: normal;
+  text-transform: uppercase;
+  color: makerFoggyGrey;
+}
