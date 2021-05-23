@@ -33,6 +33,8 @@ const TodoApp = memo((props) => {
         tasksOrder: newTaskOrder,
       };
 
+      console.log(newData);
+
       return newData;
     });
   };
@@ -48,16 +50,17 @@ const TodoApp = memo((props) => {
   //   });
   // }, []);
 
-  const deleteTask = (task) => {
-    console.log('task');
-  };
-  // const deleteTask = useCallback((task) => {
-  //   setTasks((tasks) => {
-  //     const updated = { ...tasks };
-  //     delete updated[task.id];
-  //     return updated;
-  //   });
-  // }, []);
+  const deleteTask = useCallback((task, index) => {
+    setData((data) => {
+      const newTasks = { ...data.tasks };
+      delete newTasks[task.id];
+
+      const newTasksOrder = [...data.tasksOrder];
+      newTasksOrder.splice(index, 1);
+
+      return { tasks: newTasks, tasksOrder: newTasksOrder };
+    });
+  }, []);
 
   return (
     <section className={styles.todoList}>

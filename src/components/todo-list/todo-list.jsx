@@ -13,6 +13,7 @@ const TodoList = memo(({ data, deleteTask }) => {
           className={styles.ul}
         >
           {data.tasksOrder.map((taskId, index) => {
+            console.log(taskId, index);
             const task = data.tasks[taskId];
             return (
               <TodoItem

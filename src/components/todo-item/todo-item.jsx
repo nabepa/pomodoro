@@ -5,7 +5,7 @@ import { Draggable } from 'react-beautiful-dnd';
 const TodoItem = memo(({ task, index, deleteTask }) => {
   const [done, setDone] = useState(false);
   const onDelete = () => {
-    deleteTask(task);
+    deleteTask(task, index);
   };
 
   const toggleDone = () => {
