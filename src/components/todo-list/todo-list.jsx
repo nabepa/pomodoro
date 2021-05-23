@@ -2,6 +2,7 @@ import styles from './todo-list.module.css';
 import React, { memo, useCallback, useState } from 'react';
 import TodoAdd from '../todo-add/todo-add';
 import TodoItem from '../todo-item/todo-item';
+import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 
 const TodoList = memo((props) => {
   const [data, setData] = useState({
@@ -11,6 +12,8 @@ const TodoList = memo((props) => {
     },
     tasksOrder: ['task-1', 'task-2'],
   });
+
+  const onDragEnd = () => {};
 
   const addTask = (task) => {
     console.log('task');
@@ -49,12 +52,30 @@ const TodoList = memo((props) => {
   return (
     <section className={styles.todoList}>
       <h1 className={styles.title}>to-do</h1>
-      <ul className={styles.ul}>
-        {data.tasksOrder.map((taskId) => {
-          const task = data.tasks[taskId];
-          return <TodoItem key={task.id} task={task} />;
-        })}
-      </ul>
+      <DragDropContext onDragEnd={onDragEnd}>
+        <Droppable droppableId={0}>
+          {(provided) => (
+            <ul
+              ref={provided.innerRef}
+              {...provided.droppableProps}
+              className={styles.ul}
+            >
+              {data.tasksOrder.map((taskId, index) => {
+                const task = data.tasks[taskId];
+                return (
+                  <TodoItem
+                    key={task.id}
+                    task={task}
+                    index={index}
+                    deleteTask={deleteTask}
+                  />
+                );
+              })}
+              {provided.placeholder}
+            </ul>
+          )}
+        </Droppable>
+      </DragDropContext>
       <TodoAdd addTask={addTask} />
     </section>
   );
