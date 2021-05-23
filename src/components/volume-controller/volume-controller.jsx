@@ -1,5 +1,4 @@
 import styles from './volume-controller.module.css';
-import './slidebar-style.css';
 import React, { memo } from 'react';
 import Slider from '@material-ui/core/Slider';
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
