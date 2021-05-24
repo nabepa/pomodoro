@@ -1,18 +1,19 @@
 import styles from './todo-app.module.css';
-import React, { memo, useCallback, useState } from 'react';
+import React, { memo, useCallback, useEffect, useState } from 'react';
 import { DragDropContext } from 'react-beautiful-dnd';
 import TodoList from '../todo-list/todo-list';
 import TodoAdd from '../todo-add/todo-add';
 
 const TodoApp = memo((props) => {
-  const [data, setData] = useState({
-    tasks: {
-      'task-1': { id: 'task-1', name: 'do1' },
-      'task-2': { id: 'task-2', name: 'do2' },
-      'task-3': { id: 'task-3', name: 'do3' },
-    },
-    tasksOrder: ['task-1', 'task-2', 'task-3'],
-  });
+  const [data, setData] = useState(
+    JSON.parse(sessionStorage.getItem('todoData')) || {
+      tasks: {
+        'task-1': { id: 'task-1', name: 'study react' },
+        'task-2': { id: 'task-2', name: 'submmit resume' },
+      },
+      tasksOrder: ['task-1', 'task-2'],
+    }
+  );
 
   const onDragEnd = (result) => {
     const { destination, source, draggableId } = result;
@@ -60,6 +61,10 @@ const TodoApp = memo((props) => {
       return { tasks: newTasks, tasksOrder: newTasksOrder };
     });
   }, []);
+
+  useEffect(() => {
+    sessionStorage.setItem('todoData', JSON.stringify(data));
+  }, [data]);
 
   return (
     <section className={styles.todoList}>
