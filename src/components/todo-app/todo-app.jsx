@@ -67,7 +67,7 @@ const TodoApp = memo((props) => {
   }, [data]);
 
   return (
-    <section className={styles.todoList}>
+    <section className={styles.todoApp}>
       <h1 className={styles.title}>to-do</h1>
       <DragDropContext onDragEnd={onDragEnd}>
         <TodoList data={data} deleteTask={deleteTask} />
