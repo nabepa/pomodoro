@@ -1,4 +1,6 @@
-# Pomodoro Timmer
+# Pomodoro Timer
+
+You can try this app: [https://stoic-shaw-001338.netlify.app/](https://stoic-shaw-001338.netlify.app/)
 
 ## ⭐️ 機能
 
@@ -61,5 +63,5 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 - タイマーが動いているブラウザーのタブから離れるとカウントダウンが遅くなる
 - safari で告知音の自動再生関連のエラー発生
-- 集中  モードと休みモードとを切り替えるボタン追加
+- 集中モードと休みモードとを切り替えるボタン追加
 - 登録済みの ToDo の内容修正を可能に
