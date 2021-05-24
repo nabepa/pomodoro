@@ -1,70 +1,67 @@
-# Getting Started with Create React App
+# Pomodoro Timmer
+
+## ⭐️ 機能
+
+### Pomodoro Technique のためのタイマー ⏱
+
+- Pomodoro Technique とは? 25 分の集中と 5 分の休みを繰り返す集中法
+- 集中モードと休みモードが自動でスイッチングされるタイマー
+- 効果音 🎶 と UI のカーラで(下のイメージ参考)集中モードと休みモードのスイッチングを告知
+
+      <!-- ![images]](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/33e02262-dd0b-4e9a-9980-d86472532e07/Untitled.png) -->
+
+  ![title](public/images/pomodoro.png)
+     <center>左: 集中モード(赤)　右: 休みモード(緑)</center>
+  <br/>
+
+- 集中と休みの時間を調整して自分に合うサイクルも設定可能
+
+### Todo list 🗒
+
+- 今日の課題を記録
+- 終わった課題はチェックまたは削除
+- Drag&Drop でリスト内の順序の変更が可能
+
+## 🦄 使用言語とツール
+
+<!-- 아이콘들 -->
+
+- HTML
+- POST CSS
+- JavaScript
+- React
+
+## 📚 使用ライブラリとリソース
+
+- [@material-ui/core](https://material-ui.com/) 告知音の音量調整のコントローラーと Todo list のチェックボックス
+
+- [react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd) Todo list の drag&drop
+
+- [Google Fonts](https://fonts.google.com/icons) 各種アイコンのリソース
+
+- [Material Design](https://material.io/design/sound/sound-resources.html) 告知音のリソース
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## 📖 Project で新しく勉強した事
 
-In the project directory, you can run:
+[JavaScript Scheduling](https://www.notion.so/setTimeout-setInterval-ca77892ac1ab47e7bc85a893a2214b40) \*韓国語の文書
 
-### `yarn start`
+[localStorage & SessionStorage](https://www.notion.so/localStorage-SessionStorage-84651886d39c47a890e4d4b9f6c65ff3) \*韓国語の文書
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## 🐛 改善
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- ~~再読み込みのボタンを押しても Todo list 保存するように~~
 
-### `yarn test`
+  → sessionStorage を利用してセーブ&ロードするように改善(May 24, 2021)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- ~~Todo list にチェックボックを追加~~
 
-### `yarn build`
+  → 追加(May 24, 2021)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  - 再読み込みのボタンを押すとチェック記録が無くなる問題発生
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- タイマーが動いているブラウザーのタブから離れるとカウントダウンが遅くなる
+- safari で告知音の自動再生関連のエラー発生
+- 集中  モードと休みモードとを切り替えるボタン追加
+- 登録済みの ToDo の内容修正を可能に
