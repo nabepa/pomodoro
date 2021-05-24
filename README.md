@@ -8,7 +8,7 @@
 - 集中モードと休みモードが自動でスイッチングされるタイマー
 - 効果音 🎶 と UI のカーラで(下のイメージ参考)集中モードと休みモードのスイッチングを告知
 
-  ![title](public/images/pomodoro.png)
+  ![inApp](public/images/pomodoro.png)
      <center>左: 集中モード(赤)　右: 休みモード(緑)</center>
   <br/>
 
@@ -22,12 +22,13 @@
 
 ## 🦄 使用言語とツール
 
-<!-- 아이콘들 -->
-
-- HTML
-- POST CSS
-- JavaScript
-- React
+<img width="40" height="40" src="public/images/html.svg">
+<img width="40" height="40" src="public/images/css.svg">
+<img width="40" height="40" src="public/images/postcss.svg">
+<img width="40" height="40" src="public/images/javascript.svg">
+<img width="40" height="40" src="public/images/react.svg">
+<br/>
+HTML, CSS, POST CSS, JavaScript, React
 
 ## 📚 使用ライブラリとリソース
 
