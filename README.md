@@ -8,8 +8,6 @@
 - 集中モードと休みモードが自動でスイッチングされるタイマー
 - 効果音 🎶 と UI のカーラで(下のイメージ参考)集中モードと休みモードのスイッチングを告知
 
-      <!-- ![images]](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/33e02262-dd0b-4e9a-9980-d86472532e07/Untitled.png) -->
-
   ![title](public/images/pomodoro.png)
      <center>左: 集中モード(赤)　右: 休みモード(緑)</center>
   <br/>
