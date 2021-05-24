@@ -22,13 +22,18 @@
 
 ## 🦄 使用言語とツール
 
-<img width="40" height="40" src="public/images/html.svg">
-<img width="40" height="40" src="public/images/css.svg">
-<img width="40" height="40" src="public/images/postcss.svg">
-<img width="40" height="40" src="public/images/javascript.svg">
-<img width="40" height="40" src="public/images/react.svg">
-<br/>
-HTML, CSS, POST CSS, JavaScript, React
+<style>
+td, th {
+   border: none!important;
+}
+</style>
+
+| <img width="40" height="40" src="public/images/html.svg"> | <img width="40" height="40" src="public/images/css.svg"> | <img width="40" height="40" src="public/images/postcss.svg"> | <img width="40" height="40" src="public/images/javascript.svg"> | <img width="40" height="40" src="public/images/react.svg"> |
+| :-------------------------------------------------------: | :------------------------------------------------------: | :----------------------------------------------------------: | :-------------------------------------------------------------: | :--------------------------------------------------------: |
+|                           HTML                            |                           CSS                            |                           POST CSS                           |                           JavaScript                            |                           React                            |
+
+<!-- <br/> -->
+<!-- HTML, CSS, POST CSS, JavaScript, React -->
 
 ## 📚 使用ライブラリとリソース
 
