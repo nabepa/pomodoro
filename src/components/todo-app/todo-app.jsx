@@ -33,8 +33,6 @@ const TodoApp = memo((props) => {
         tasksOrder: newTaskOrder,
       };
 
-      console.log(newData);
-
       return newData;
     });
   };
