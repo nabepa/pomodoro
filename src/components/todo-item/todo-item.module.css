@@ -5,27 +5,29 @@
   justify-content: space-between;
   align-items: center;
   margin: 0.5em;
-  cursor: pointer;
 }
 
-.todoItem:hover .name,
-.todoItem:hover .button {
-  color: LightGrey;
+.checkbox {
+  color: makerFoggyGrey !important;
 }
 
-.todoItem:active .name {
-  transform: scale(1.1);
+.checkbox:hover {
+  background-color: #ffffff10 !important;
 }
 
 .name {
+  width: 100%;
   overflow-x: auto;
   color: makerFoggyGrey;
-  transition: all 0.1s ease-in-out;
+}
+
+.name:hover {
+  color: makerLightGrey;
 }
 
 .name.done {
   text-decoration-line: line-through;
-  text-decoration-thickness: 0.2rem;
+  text-decoration-thickness: 0.18rem;
 }
 
 .button {
@@ -40,9 +42,4 @@
 
 .button:hover {
   color: makerFoggyGrey;
-  transform: scale(1.1);
-}
-
-.button:active {
-  transform: scale(1.2);
 }

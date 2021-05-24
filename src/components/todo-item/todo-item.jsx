@@ -1,6 +1,7 @@
 import styles from './todo-item.module.css';
 import React, { memo, useState } from 'react';
 import { Draggable } from 'react-beautiful-dnd';
+import Checkbox from '@material-ui/core/Checkbox';
 
 const TodoItem = memo(({ task, index, deleteTask }) => {
   const [done, setDone] = useState(false);
@@ -22,8 +23,8 @@ const TodoItem = memo(({ task, index, deleteTask }) => {
           {...provided.draggableProps}
           {...provided.dragHandleProps}
           className={styles.todoItem}
-          onClick={toggleDone}
         >
+          <Checkbox classes={{ root: styles.checkbox }} onClick={toggleDone} />
           <span className={`${styles.name} ${done ? styles.done : ''}`}>
             {task.name}
           </span>
