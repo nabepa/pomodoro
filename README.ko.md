@@ -5,7 +5,7 @@ Read this in other languages: [日本語 🇯🇵](README.md)
 You can try this app, click below badge!
 </br>
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/aea01573-e082-44b4-8617-12e71bf71494/deploy-status)](https://stoic-shaw-001338.netlify.app/)
+<a href="https://stoic-shaw-001338.netlify.app/" target="_blank">![Netlify Status](https://api.netlify.com/api/v1/badges/aea01573-e082-44b4-8617-12e71bf71494/deploy-status)</a>
 
 ## ⭐️ 기능
 
