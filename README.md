@@ -1,35 +1,36 @@
 # Pomodoro Timer
 
+Read this in other languages: [Korean🇰🇷](README.ko.md)
+
 You can try this app: [https://stoic-shaw-001338.netlify.app/](https://stoic-shaw-001338.netlify.app/)
 
 ## ⭐️ 機能
 
 ### Pomodoro Technique のためのタイマー ⏱
 
-- Pomodoro Technique とは? 25 分の集中と 5 分の休みを繰り返す集中法
-- 集中モードと休みモードが自動でスイッチングされるタイマー
-- 効果音 🎶 と UI のカーラで(下のイメージ参考)集中モードと休みモードのスイッチングを告知
+- Pomodoro Technique とは? 25 分間の集中と 5 分間の休みを繰り返す集中法
+- 集中モードと休みモードが自動で切り替わるタイマー
+- モードの切り替わりを効果音 🎶 と UI のカーラの変化で(下のイメージ)告知
 
   ![inApp](public/images/pomodoro.png)
      <center>左: 集中モード(赤)　右: 休みモード(緑)</center>
   <br/>
 
-- 集中と休みの時間を調整して自分に合うサイクルも設定可能
+- 集中と休みの時間を調整して，自分に合うサイクルも設定可能
 
 ### Todo list 🗒
 
 - 今日の課題を記録
 - 終わった課題はチェックまたは削除
-- Drag&Drop でリスト内の順序の変更が可能
+- Drag&Drop でリストの順序を変更可能
 
 ## 🦄 使用言語とツール
 
-| <img width="40" height="40" src="public/images/html.svg"> | <img width="40" height="40" src="public/images/css.svg"> | <img width="40" height="40" src="public/images/postcss.svg"> | <img width="40" height="40" src="public/images/javascript.svg"> | <img width="40" height="40" src="public/images/react.svg"> |
-| :-------------------------------------------------------: | :------------------------------------------------------: | :----------------------------------------------------------: | :-------------------------------------------------------------: | :--------------------------------------------------------: |
-|                           HTML                            |                           CSS                            |                           POST CSS                           |                           JavaScript                            |                           React                            |
+| <img width="40" height="40" src="public/images/html.svg"> | <img width="40" height="40" src="public/images/css.svg"> | <img width="40" height="40" src="public/images/javascript.svg"> | <img width="40" height="40" src="public/images/postcss.svg"> | <img width="40" height="40" src="public/images/react.svg"> |
+| :-------------------------------------------------------: | :------------------------------------------------------: | :-------------------------------------------------------------: | :----------------------------------------------------------: | :--------------------------------------------------------: |
+|                           HTML                            |                           CSS                            |                           JavaScript                            |                           POST CSS                           |                           React                            |
 
-<!-- <br/> -->
-<!-- HTML, CSS, POST CSS, JavaScript, React -->
+<br/>
 
 ## 📚 使用ライブラリとリソース
 
@@ -47,11 +48,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 [JavaScript Scheduling](https://www.notion.so/setTimeout-setInterval-ca77892ac1ab47e7bc85a893a2214b40) \*韓国語の文書
 
-[localStorage & SessionStorage](https://www.notion.so/localStorage-SessionStorage-84651886d39c47a890e4d4b9f6c65ff3) \*韓国語の文書
+[localStorage & sessionStorage](https://www.notion.so/localStorage-SessionStorage-84651886d39c47a890e4d4b9f6c65ff3) \*韓国語の文書
 
 ## 🐛 改善
 
-- ~~再読み込みのボタンを押しても Todo list 保存するように~~
+- ~~再読み込みのボタンを押しても Todo list 項目が保存するように~~
 
   → sessionStorage を利用してセーブ&ロードするように改善(May 24, 2021)
 
