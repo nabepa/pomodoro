@@ -4,6 +4,7 @@ Read this in other languages: [한국어 🇰🇷](README.ko.md)
 
 You can try this app, click below badge!
 </br>
+
 <a href="https://stoic-shaw-001338.netlify.app/" target="_blank">![Netlify Status](https://api.netlify.com/api/v1/badges/aea01573-e082-44b4-8617-12e71bf71494/deploy-status)</a>
 
 ## ⭐️ 機能
@@ -56,7 +57,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 [localStorage & sessionStorage](https://www.notion.so/localStorage-SessionStorage-84651886d39c47a890e4d4b9f6c65ff3) \*韓国語の文書
 
-## 🐛 改善
+## 🐛 改善予定
 
 - ~~再読み込みのボタンを押しても Todo list 項目が保存するように~~
 
