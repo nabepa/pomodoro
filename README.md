@@ -73,3 +73,4 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - safari で告知音の自動再生関連のエラー発生
 - 集中モードと休みモードとを切り替えるボタン追加
 - 登録済みの ToDo の内容修正を可能に
+- モバイル UI 改善

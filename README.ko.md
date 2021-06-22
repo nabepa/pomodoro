@@ -58,7 +58,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 [localStorage & sessionStorage](https://www.notion.so/localStorage-SessionStorage-84651886d39c47a890e4d4b9f6c65ff3)
 
-## 🐛 개선
+## 🐛 개선 예정
 
 - ~~새로 고침을 눌러도 Todo list 항목이 유지되도록~~
 
@@ -77,3 +77,4 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - safari에서 알림음 자동 재생 관련 에러 발생
 - 집중/휴식 모드 전환 버튼 추가
 - 등록한 todo 내용 수정
+- 모바일 UI 개선
